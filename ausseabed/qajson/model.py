@@ -11,10 +11,10 @@ import traceback
 logger = logging.getLogger(__name__)
 
 
-class QaJsonFile:
+class QajsonFile:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonFile':
+    def from_dict(cls, data: Dict) -> 'QajsonFile':
         instance = cls(
             path=data['path'],
             description=data['description'] if 'description' in data else None
@@ -34,10 +34,10 @@ class QaJsonFile:
         return dict
 
 
-class QaJsonGroup:
+class QajsonGroup:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonGroup':
+    def from_dict(cls, data: Dict) -> 'QajsonGroup':
         instance = cls(
             id=data['id'],
             name=data['name'] if 'name' in data else None,
@@ -61,10 +61,10 @@ class QaJsonGroup:
         return dict
 
 
-class QaJsonExecution:
+class QajsonExecution:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonExecution':
+    def from_dict(cls, data: Dict) -> 'QajsonExecution':
         instance = cls(
             start=data['start'] if 'start' in data else None,
             end=data['end'] if 'end' in data else None,
@@ -92,12 +92,12 @@ class QaJsonExecution:
         return dict
 
 
-class QaJsonParam:
+class QajsonParam:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonParam':
+    def from_dict(cls, data: Dict) -> 'QajsonParam':
         group = (
-            QaJsonGroup.from_dict(data['group']) if 'group' in data else None)
+            QajsonGroup.from_dict(data['group']) if 'group' in data else None)
         instance = cls(
             name=data['name'],
             value=data['value']
@@ -116,12 +116,12 @@ class QaJsonParam:
         return dict
 
 
-class QaJsonInfo:
+class QajsonInfo:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonInfo':
+    def from_dict(cls, data: Dict) -> 'QajsonInfo':
         group = (
-            QaJsonGroup.from_dict(data['group']) if 'group' in data else None)
+            QajsonGroup.from_dict(data['group']) if 'group' in data else None)
         instance = cls(
             id=data['id'],
             name=data['name'] if 'name' in data else None,
@@ -137,7 +137,7 @@ class QaJsonInfo:
             name: str,
             description: str,
             version: str,
-            group: QaJsonGroup):
+            group: QajsonGroup):
         self.id = id
         self.name = name
         self.description = description
@@ -159,26 +159,26 @@ class QaJsonInfo:
         return dict
 
 
-class QaJsonInputs:
+class QajsonInputs:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonInputs':
+    def from_dict(cls, data: Dict) -> 'QajsonInputs':
         files = []
         if 'files' in data:
             files = [
-                QaJsonFile.from_dict(file_dict)
+                QajsonFile.from_dict(file_dict)
                 for file_dict in data['files']
             ]
         params = []
         if 'params' in data:
             params = [
-                QaJsonParam.from_dict(param_dict)
+                QajsonParam.from_dict(param_dict)
                 for param_dict in data['params']
             ]
         instance = cls(files=files, params=params)
         return instance
 
-    def __init__(self, files: List[QaJsonFile], params: List[QaJsonParam]):
+    def __init__(self, files: List[QajsonFile], params: List[QajsonParam]):
         self.files = files
         self.params = params
 
@@ -189,19 +189,19 @@ class QaJsonInputs:
         }
 
 
-class QaJsonOutputs:
+class QajsonOutputs:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonOutputs':
+    def from_dict(cls, data: Dict) -> 'QajsonOutputs':
         files = None
         if 'files' in data:
             files = [
-                QaJsonFile.from_dict(file_dict)
+                QajsonFile.from_dict(file_dict)
                 for file_dict in data['files']
             ]
 
         instance = cls(
-            execution=QaJsonExecution.from_dict(data['execution']),
+            execution=QajsonExecution.from_dict(data['execution']),
             files=files,
             count=data['count'] if 'count' in data else None,
             percentage=data['percentage'] if 'percentage' in data else None,
@@ -212,8 +212,8 @@ class QaJsonOutputs:
 
     def __init__(
             self,
-            execution: QaJsonExecution = None,
-            files: List[QaJsonFile] = None,
+            execution: QajsonExecution = None,
+            files: List[QajsonFile] = None,
             count: int = None,
             percentage: float = None,
             message: str = None,
@@ -227,7 +227,7 @@ class QaJsonOutputs:
 
     def to_dict(self):
         dict = {
-            'execution': QaJsonExecution.to_dict(self.execution)
+            'execution': QajsonExecution.to_dict(self.execution)
         }
         if self.files is not None:
             dict['files'] = [file.to_dict() for file in self.files]
@@ -242,19 +242,19 @@ class QaJsonOutputs:
         return dict
 
 
-class QaJsonCheck:
+class QajsonCheck:
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonCheck':
+    def from_dict(cls, data: Dict) -> 'QajsonCheck':
         outputs = (
-            QaJsonOutputs.from_dict(data['outputs'])
+            QajsonOutputs.from_dict(data['outputs'])
             if 'outputs' in data else None)
         inputs = (
-            QaJsonInputs.from_dict(data['inputs'])
+            QajsonInputs.from_dict(data['inputs'])
             if 'inputs' in data else None)
 
         instance = cls(
-            info=QaJsonInfo.from_dict(data['info']),
+            info=QajsonInfo.from_dict(data['info']),
             outputs=outputs,
             inputs=inputs,
         )
@@ -262,16 +262,16 @@ class QaJsonCheck:
 
     def __init__(
             self,
-            info: QaJsonInfo,
-            inputs: QaJsonInputs,
-            outputs: QaJsonOutputs):
+            info: QajsonInfo,
+            inputs: QajsonInputs,
+            outputs: QajsonOutputs):
         self.info = info
         self.inputs = inputs
         self.outputs = outputs
 
-    def get_or_add_inputs(self) -> QaJsonInputs:
+    def get_or_add_inputs(self) -> QajsonInputs:
         if self.inputs is None:
-            self.inputs = QaJsonInputs(files=[], params=[])
+            self.inputs = QajsonInputs(files=[], params=[])
         return self.inputs
 
     def to_dict(self):
@@ -285,27 +285,27 @@ class QaJsonCheck:
         return dict
 
 
-class QaJsonDataLevel:
+class QajsonDataLevel:
     """ Represents QA JSON data type. Data type refers to a grouping of
     input data loosly based on processed state. eg; raw data, or survey
     products.
     """
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonDataLevel':
+    def from_dict(cls, data: Dict) -> 'QajsonDataLevel':
         checks = []
         if 'checks' in data:
             checks = [
-                QaJsonCheck.from_dict(check_dict)
+                QajsonCheck.from_dict(check_dict)
                 for check_dict in data['checks']
             ]
         instance = cls(checks=checks)
         return instance
 
-    def __init__(self, checks: List[QaJsonCheck]):
+    def __init__(self, checks: List[QajsonCheck]):
         self.checks = checks
 
-    def get_check(self, check_id: str) -> QaJsonCheck:
+    def get_check(self, check_id: str) -> QajsonCheck:
         """ Gets a check based on id, or None if the check does not exist
         """
         check = next((c for c in self.checks if c.info.id == check_id), None)
@@ -317,20 +317,20 @@ class QaJsonDataLevel:
         }
 
 
-class QaJsonQa:
+class QajsonQa:
     """ Represents QA JSON QA object. Includes metadata about the QA JSON
     """
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonQa':
+    def from_dict(cls, data: Dict) -> 'QajsonQa':
         version = data['version'] if 'version' in data else None
         chart_adequacy = (
-            QaJsonDataLevel.from_dict(data['chart_adequacy'])
+            QajsonDataLevel.from_dict(data['chart_adequacy'])
             if 'chart_adequacy' in data else None)
         instance = cls(
             version=version,
-            raw_data=QaJsonDataLevel.from_dict(data['raw_data']),
-            survey_products=QaJsonDataLevel.from_dict(data['survey_products']),
+            raw_data=QajsonDataLevel.from_dict(data['raw_data']),
+            survey_products=QajsonDataLevel.from_dict(data['survey_products']),
             chart_adequacy=chart_adequacy
         )
         return instance
@@ -338,23 +338,23 @@ class QaJsonQa:
     def __init__(
             self,
             version: str,
-            raw_data: QaJsonDataLevel,
-            survey_products: QaJsonDataLevel,
-            chart_adequacy: QaJsonDataLevel = None):
+            raw_data: QajsonDataLevel,
+            survey_products: QajsonDataLevel,
+            chart_adequacy: QajsonDataLevel = None):
         self.version = version
         self.raw_data = raw_data
         self.survey_products = survey_products
         self.chart_adequacy = chart_adequacy
 
     def get_or_add_data_level(
-            self, data_level: str) -> QaJsonDataLevel:
+            self, data_level: str) -> QajsonDataLevel:
         """ If a data level exists in the `qa` object it will be returned,
-        otherwise a new QaJsonDataLevel will be created, added to the qa object
+        otherwise a new QajsonDataLevel will be created, added to the qa object
         and returned
         """
         dl = getattr(self, data_level)
         if dl is None:
-            dl = QaJsonDataLevel(checks=[])
+            dl = QajsonDataLevel(checks=[])
             setattr(self, data_level, dl)
         return dl
 
@@ -369,18 +369,18 @@ class QaJsonQa:
         return dict
 
 
-class QaJsonRoot:
+class QajsonRoot:
     """ Represents root of a QA JSON file
     """
 
     @classmethod
-    def from_dict(cls, data: Dict) -> 'QaJsonRoot':
+    def from_dict(cls, data: Dict) -> 'QajsonRoot':
         instance = cls(
-            qa=QaJsonQa.from_dict(data['qa']),
+            qa=QajsonQa.from_dict(data['qa']),
         )
         return instance
 
-    def __init__(self, qa: QaJsonQa):
+    def __init__(self, qa: QajsonQa):
         self.qa = qa
 
     def to_dict(self) -> Dict:

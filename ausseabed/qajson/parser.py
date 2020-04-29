@@ -1,6 +1,16 @@
+from jsonschema import validate, ValidationError, SchemaError, Draft7Validator
+from pathlib import Path
+from typing import Optional, Dict, List, Any
+import json
+import logging
+
+from ausseabed.qajson.model import QajsonFile, QajsonParam, QajsonInputs, \
+    QajsonOutputs, QajsonInfo, QajsonRoot
+
+logger = logging.getLogger(__name__)
 
 
-class QAJson:
+class QajsonParser:
 
     here = Path(__file__).parent
 
@@ -81,7 +91,7 @@ class QAJson:
                 raise RuntimeError("invalid json: %s" % self._path)
 
         self._js = json.loads(open(str(self._path)).read())
-        self._root = QaJsonRoot.from_dict(self.js)
+        self._root = QajsonRoot.from_dict(self.js)
 
     @property
     def path(self) -> Path:
@@ -100,7 +110,7 @@ class QAJson:
         self._js = value
 
     @property
-    def root(self) -> QaJsonRoot:
+    def root(self) -> QajsonRoot:
         return self._root
 
     def __repr__(self):

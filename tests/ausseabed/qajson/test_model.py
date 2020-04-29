@@ -1,21 +1,69 @@
 import unittest
 
-from ausseabed.qajson.model import QaJsonFile
+from ausseabed.qajson.model import QajsonFile, QajsonParam, QajsonInputs, \
+    QajsonOutputs, QajsonInfo
 
 
 class TestModel(unittest.TestCase):
 
-    qa_json_file_dict = {
+    qajson_file_dict = {
         "path": "test/path/test.txt",
         "description": "test file"
     }
 
-    def test_qa_json_file(self):
-        # converts dict to QaJsonFile object, then back to dict for
+    qajson_param_01_dict = {
+        "name": "threshold",
+        "value": 123
+    }
+
+    qajson_outputs = {
+        "percentage": 55,
+        "execution": {
+            "start": "2019-07-08T14:56:49.006647",
+            "end": "2019-07-08T14:56:49.006677",
+            "status": "completed"
+        },
+        "files": [{"path": "t3.txt"}, {"path": "t4.txt"}]
+    }
+
+    qajson_info = {
+        "id": "7761e08b-1380-46fa-a7eb-f1f41db38541",
+        "name": "Filename checked",
+        "description": "desc",
+        "version": "1",
+        "group": {
+            "id": "123",
+            "name": "123"
+        }
+    }
+
+    qajson_inputs = {
+        "files": [qajson_file_dict],
+        "params": []
+    }
+
+    def test_qajson_file(self):
+        # converts dict to QajsonFile object, then back to dict for
         # comparison
-        qa_json_file = QaJsonFile.from_dict(TestModel.qa_json_file_dict)
-        qa_json_file_dict_test = QaJsonFile.to_dict(qa_json_file)
+        qajson_file = QajsonFile.from_dict(TestModel.qajson_file_dict)
+        qajson_file_dict_test = QajsonFile.to_dict(qajson_file)
         self.assertDictEqual(
-            TestModel.qa_json_file_dict,
-            qa_json_file_dict_test
+            TestModel.qajson_file_dict,
+            qajson_file_dict_test
         )
+
+    def test_qajson_param(self):
+        p1 = QajsonParam.from_dict(TestModel.qajson_param_01_dict)
+        self.assertDictEqual(TestModel.qajson_param_01_dict, p1.to_dict())
+
+    def test_qajson_inputs(self):
+        i1 = QajsonInputs.from_dict(TestModel.qajson_inputs)
+        self.assertDictEqual(TestModel.qajson_inputs, i1.to_dict())
+
+    def test_qajson_outputs(self):
+        o1 = QajsonOutputs.from_dict(TestModel.qajson_outputs)
+        self.assertDictEqual(TestModel.qajson_outputs, o1.to_dict())
+
+    def test_qajson_info(self):
+        i1 = QajsonInfo.from_dict(TestModel.qajson_info)
+        self.assertDictEqual(TestModel.qajson_info, i1.to_dict())
