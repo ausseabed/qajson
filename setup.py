@@ -16,6 +16,7 @@ setup(
     ),
     description='Description of my package',
     packages=find_packages(),
+    package_data={"": ["schemas/**/*.json"]},
     install_requires=['jsonschema'],
     tests_require=['pytest'],
 )
