@@ -1,6 +1,7 @@
 # QAJSON
 QAJSON is a JSON schema definition created by the AusSeabed project to define Quality Assurance (QA) checks, check parameters, and input data files. QAJSON also supports the storage of QA check results.
 
+[![CircleCI](https://circleci.com/gh/ausseabed/qajson/tree/develop.svg?style=svg)](https://circleci.com/gh/ausseabed/qajson/tree/develop)
 
 # Testing
 
