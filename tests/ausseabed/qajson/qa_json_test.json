@@ -34,6 +34,10 @@
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
                             }
                         ],
+                        "data": {
+                            "var1": 1234,
+                            "list_var": [1, 2, 3, 4]
+                        },
                         "check_state": "pass"
                     }
                 },

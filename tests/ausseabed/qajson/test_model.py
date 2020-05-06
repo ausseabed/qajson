@@ -36,6 +36,18 @@ class TestModel(unittest.TestCase):
         }
     }
 
+    qajson_outputs_data = {
+        "execution": {
+            "start": "2019-07-08T14:56:49.006647",
+            "end": "2019-07-08T14:56:49.006677",
+            "status": "completed"
+        },
+        "data": {
+            "var1": 1234,
+            "list_var": [1, 2, 3, 4]
+        }
+    }
+
     qajson_info = {
         "id": "7761e08b-1380-46fa-a7eb-f1f41db38541",
         "name": "Filename checked",
@@ -74,6 +86,11 @@ class TestModel(unittest.TestCase):
         # checks an output object that only has the required parameters set
         o1 = QajsonOutputs.from_dict(TestModel.qajson_outputs_minimal)
         self.assertDictEqual(TestModel.qajson_outputs_minimal, o1.to_dict())
+
+    def test_qajson_outputs_with_data(self):
+        # checks an output object that only has the required parameters set
+        o1 = QajsonOutputs.from_dict(TestModel.qajson_outputs_data)
+        self.assertDictEqual(TestModel.qajson_outputs_data, o1.to_dict())
 
     def test_qajson_outputs(self):
         o1 = QajsonOutputs.from_dict(TestModel.qajson_outputs)

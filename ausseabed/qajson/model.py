@@ -206,6 +206,7 @@ class QajsonOutputs:
             count=data['count'] if 'count' in data else None,
             percentage=data['percentage'] if 'percentage' in data else None,
             messages=data['messages'] if 'messages' in data else None,
+            data=data['data'] if 'data' in data else None,
             check_state=data['check_state'] if 'check_state' in data else None,
         )
         return instance
@@ -217,12 +218,14 @@ class QajsonOutputs:
             count: int = None,
             percentage: float = None,
             messages: str = None,
+            data: Dict = None,
             check_state: str = None):
         self.execution = execution
         self.files = files
         self.count = count
         self.percentage = percentage
         self.messages = messages
+        self.data = data
         self.check_state = check_state
 
     def to_dict(self):
@@ -237,6 +240,8 @@ class QajsonOutputs:
             dict['percentage'] = self.percentage
         if self.messages is not None:
             dict['messages'] = self.messages
+        if self.data is not None:
+            dict['data'] = self.data
         if self.check_state is not None:
             dict['check_state'] = self.check_state
         return dict
