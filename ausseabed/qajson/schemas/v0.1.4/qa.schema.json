@@ -128,9 +128,9 @@
           },
           "type": "array"
         },
-        "qa_pass": {
+        "check_state": {
           "type": "string",
-          "enum": ["yes", "no"]
+          "enum": ["pass", "fail", "warning"]
         }
       },
       "required": [

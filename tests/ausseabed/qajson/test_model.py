@@ -24,7 +24,8 @@ class TestModel(unittest.TestCase):
             "status": "completed"
         },
         "files": [{"path": "t3.txt"}, {"path": "t4.txt"}],
-        "messages": ["message one", "message two"]
+        "messages": ["message one", "message two"],
+        "check_state": "pass"
     }
 
     qajson_outputs_minimal = {

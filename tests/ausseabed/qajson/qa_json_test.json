@@ -33,7 +33,8 @@
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
                             }
-                        ]
+                        ],
+                        "check_state": "pass"
                     }
                 },
                 {
@@ -66,7 +67,8 @@
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
                             }
-                        ]
+                        ],
+                        "check_state": "fail"
                     }
                 },
                 {
@@ -99,7 +101,8 @@
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
                             }
-                        ]
+                        ],
+                        "check_state": "warning"
                     }
                 },
                 {
