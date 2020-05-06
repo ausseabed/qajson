@@ -1,5 +1,5 @@
 {
-  "$id": "https://www.hydroffice.org/qa/v0.1.3/qa.schema.json",
+  "$id": "https://www.hydroffice.org/qa/v0.1.4/qa.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Quality Assurance Checks for Ocean Mapping",
   "description": "A schema describing QA checks for ocean mapping surveys",
@@ -122,8 +122,11 @@
         "percentage": {
           "type": "number"
         },
-        "message": {
-          "type": "string"
+        "messages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "qa_pass": {
           "type": "string",

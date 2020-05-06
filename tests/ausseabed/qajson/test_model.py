@@ -23,7 +23,16 @@ class TestModel(unittest.TestCase):
             "end": "2019-07-08T14:56:49.006677",
             "status": "completed"
         },
-        "files": [{"path": "t3.txt"}, {"path": "t4.txt"}]
+        "files": [{"path": "t3.txt"}, {"path": "t4.txt"}],
+        "messages": ["message one", "message two"]
+    }
+
+    qajson_outputs_minimal = {
+        "execution": {
+            "start": "2019-07-08T14:56:49.006647",
+            "end": "2019-07-08T14:56:49.006677",
+            "status": "completed"
+        }
     }
 
     qajson_info = {
@@ -59,6 +68,11 @@ class TestModel(unittest.TestCase):
     def test_qajson_inputs(self):
         i1 = QajsonInputs.from_dict(TestModel.qajson_inputs)
         self.assertDictEqual(TestModel.qajson_inputs, i1.to_dict())
+
+    def test_qajson_outputs_minimal(self):
+        # checks an output object that only has the required parameters set
+        o1 = QajsonOutputs.from_dict(TestModel.qajson_outputs_minimal)
+        self.assertDictEqual(TestModel.qajson_outputs_minimal, o1.to_dict())
 
     def test_qajson_outputs(self):
         o1 = QajsonOutputs.from_dict(TestModel.qajson_outputs)
