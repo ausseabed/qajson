@@ -17,17 +17,20 @@ class QajsonFile:
     def from_dict(cls, data: Dict) -> 'QajsonFile':
         instance = cls(
             path=data['path'],
+            file_type=data['file_type'],
             description=data['description'] if 'description' in data else None
         )
         return instance
 
-    def __init__(self, path: str, description: str):
+    def __init__(self, path: str, file_type: str, description: str):
         self.path = path
+        self.file_type = file_type
         self.description = description
 
     def to_dict(self):
         dict = {
             'path': self.path,
+            'file_type': self.file_type,
         }
         if self.description is not None:
             dict['description'] = self.description

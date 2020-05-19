@@ -8,7 +8,8 @@ class TestModel(unittest.TestCase):
 
     qajson_file_dict = {
         "path": "test/path/test.txt",
-        "description": "test file"
+        "description": "test file",
+        "file_type": "kongsberg-all"
     }
 
     qajson_param_01_dict = {
@@ -23,7 +24,10 @@ class TestModel(unittest.TestCase):
             "end": "2019-07-08T14:56:49.006677",
             "status": "completed"
         },
-        "files": [{"path": "t3.txt"}, {"path": "t4.txt"}],
+        "files": [
+            {"path": "t3.txt", "file_type": "unknown"},
+            {"path": "t4.txt", "file_type": "unknown"}
+        ],
         "messages": ["message one", "message two"],
         "check_state": "pass"
     }

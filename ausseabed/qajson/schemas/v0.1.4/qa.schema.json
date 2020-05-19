@@ -154,12 +154,24 @@
         "path": {
           "type": "string"
         },
+        "file_type": {
+          "type": "string",
+          "enum": [
+            "kongsberg-all",
+            "gsf",
+            "sound-velocity-profile",
+            "trueheave",
+            "any",
+            "unknown"
+          ]
+        },
         "description": {
           "type": "string"
         }
       },
       "required": [
-        "path"
+        "path",
+        "file_type"
       ]
     },
     "group": {

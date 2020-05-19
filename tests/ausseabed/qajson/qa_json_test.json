@@ -18,7 +18,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -31,7 +32,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
+                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ],
                         "data": {
@@ -56,7 +58,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -69,7 +72,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
+                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ],
                         "check_state": "fail"
@@ -90,7 +94,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -103,7 +108,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
+                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ],
                         "check_state": "warning"
@@ -124,7 +130,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -137,7 +144,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
+                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     }
@@ -157,7 +165,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -170,7 +179,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
+                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     }
@@ -190,7 +200,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ],
                         "params": [
@@ -209,7 +220,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all"
+                                "path": "tests/test_data/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     }
@@ -229,7 +241,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -255,7 +268,8 @@
                         "files": [
                             {
                                 "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
-                                "description": "raw data"
+                                "description": "raw data",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     },
@@ -268,7 +282,8 @@
                         },
                         "files": [
                             {
-                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all"
+                                "path": "tests/test_data/0243_P007_MBES_EM122_20150207_044356_Supporter_GA4430.all",
+                                "file_type": "kongsberg-all"
                             }
                         ]
                     }
