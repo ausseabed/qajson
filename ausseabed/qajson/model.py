@@ -11,7 +11,18 @@ import traceback
 logger = logging.getLogger(__name__)
 
 
-class QajsonFile:
+class QajsonObject:
+
+    def __repr__(self):
+        return (
+            type(self).__name__ +
+            "\n" +
+            json.dumps(self.to_dict(), indent=4) +
+            "\n"
+        )
+
+
+class QajsonFile(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonFile':
@@ -37,7 +48,7 @@ class QajsonFile:
         return dict
 
 
-class QajsonGroup:
+class QajsonGroup(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonGroup':
@@ -64,7 +75,7 @@ class QajsonGroup:
         return dict
 
 
-class QajsonExecution:
+class QajsonExecution(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonExecution':
@@ -95,7 +106,7 @@ class QajsonExecution:
         return dict
 
 
-class QajsonParam:
+class QajsonParam(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonParam':
@@ -119,7 +130,7 @@ class QajsonParam:
         return dict
 
 
-class QajsonInfo:
+class QajsonInfo(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonInfo':
@@ -162,7 +173,7 @@ class QajsonInfo:
         return dict
 
 
-class QajsonInputs:
+class QajsonInputs(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonInputs':
@@ -192,7 +203,7 @@ class QajsonInputs:
         }
 
 
-class QajsonOutputs:
+class QajsonOutputs(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonOutputs':
@@ -250,7 +261,7 @@ class QajsonOutputs:
         return dict
 
 
-class QajsonCheck:
+class QajsonCheck(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonCheck':
@@ -293,7 +304,7 @@ class QajsonCheck:
         return dict
 
 
-class QajsonDataLevel:
+class QajsonDataLevel(QajsonObject):
     """ Represents QA JSON data type. Data type refers to a grouping of
     input data loosly based on processed state. eg; raw data, or survey
     products.
@@ -325,7 +336,7 @@ class QajsonDataLevel:
         }
 
 
-class QajsonQa:
+class QajsonQa(QajsonObject):
     """ Represents QA JSON QA object. Includes metadata about the QA JSON
     """
 
@@ -377,7 +388,7 @@ class QajsonQa:
         return dict
 
 
-class QajsonRoot:
+class QajsonRoot(QajsonObject):
     """ Represents root of a QA JSON file
     """
 
