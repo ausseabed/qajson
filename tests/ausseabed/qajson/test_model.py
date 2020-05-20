@@ -9,7 +9,7 @@ class TestModel(unittest.TestCase):
     qajson_file_dict = {
         "path": "test/path/test.txt",
         "description": "test file",
-        "file_type": "kongsberg-all"
+        "file_type": "Raw Files"
     }
 
     qajson_param_01_dict = {
