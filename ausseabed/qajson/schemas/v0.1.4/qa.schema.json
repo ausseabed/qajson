@@ -159,7 +159,7 @@
           "enum": [
             "Raw Files",
             "SVP Files",
-            "Trueheave files",
+            "Trueheave Files",
             "any",
             "unknown"
           ]

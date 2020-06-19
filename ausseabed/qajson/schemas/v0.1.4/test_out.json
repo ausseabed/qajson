@@ -1,0 +1,1062 @@
+{
+    "qa": {
+        "version": "0.1.3",
+        "raw_data": {
+
+              "checks": [
+                  {
+                      "info": {
+                          "id": "bbce47c0-54c9-4c60-8de8-b174a8905091",
+                          "name": "Backscatter Available",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.649230",
+                              "end": "2020-05-28T11:24:10.650864"
+                          },
+                          "messages": [
+                              "Critical: backscatter information is missing ('S' or 'Y' datagram).  You will not be able to process backscatter without seabed image data.  If you intend processing backscatter check your setup."
+                          ],
+                          "data": {
+                              "missing_critical": [
+                                  "S"
+                              ],
+                              "missing_noncritical": []
+                          },
+                          "check_state": "fail"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "8c909ace-8759-4c2c-b86a-f76f888cd821",
+                          "name": "Bathymetry Available",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.650904",
+                              "end": "2020-05-28T11:24:10.651328"
+                          },
+                          "messages": [
+                              "Warning: your network attitude and velocity is not being logged.  If you intend working in deeper water with a frequency modulated chirp you will need to interface this data.",
+                              "Warning: neither datagram 'D' or 'X' were found, processed depth information is missing.",
+                              "Critical: neither datagram 'F', 'f' or 'N' were found. Critical range and angle data missing, you are not collecting the data required for post processing.  If you are collecting processed depths it is possible to back process however it is not desirable and is a complex process."
+                          ],
+                          "data": {
+                              "missing_critical": [
+                                  "F"
+                              ],
+                              "missing_noncritical": [
+                                  "n",
+                                  "D"
+                              ]
+                          },
+                          "check_state": "fail"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "4a3f3371-3a21-44f2-93cf-d9ed19d0c002",
+                          "name": "Date checked",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.651356",
+                              "end": "2020-05-28T11:24:10.651389"
+                          },
+                          "check_state": "pass"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "9b39cae1-dbb6-4f8c-b71a-d6f8ed843808",
+                          "name": "Ellipsoid Height Setup",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "failed",
+                              "start": "2020-05-29T18:28:51.914574",
+                              "end": "2020-05-29T18:28:51.914574",
+                              "error": "Traceback (most recent call last):\n  File \"Z:\\work\\projects\\qa4mb\\repo\\hyo2_mate\\hyo2\\mate\\lib\\check_runner.py\", line 185, in run_checks\n    check.run_check()\n  File \"Z:\\work\\projects\\qa4mb\\repo\\hyo2_mate\\hyo2\\mate\\lib\\scan_check.py\", line 180, in run_check\n    raise RuntimeError(\"foo bar\")\nRuntimeError: foo bar\n"
+                          },
+                          "messages": [
+                              "Unable to conduct height setup check.  No network attitude and velocity datagrams"
+                          ],
+                          "data": {},
+                          "check_state": "warning"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "7761e08b-1380-46fa-a7eb-f1f41db38541",
+                          "name": "Filename checked",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.651439",
+                              "end": "2020-05-28T11:24:10.651457"
+                          },
+                          "messages": [
+                              "Filename does not match name embedded within file contents"
+                          ],
+                          "check_state": "fail"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "d762fd79-75bc-4aff-a9d2-e0c36e744e17",
+                          "name": "Minimum Ping count",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": [
+                              {
+                                  "name": "threshold",
+                                  "value": 20
+                              }
+                          ]
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.651474",
+                              "end": "2020-05-28T11:24:10.651495"
+                          },
+                          "check_state": "pass"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "5421f3f2-6e37-4740-bf83-488bebde49f4",
+                          "name": "Ray Tracing Available",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.651510",
+                              "end": "2020-05-28T11:24:10.651922"
+                          },
+                          "messages": [
+                              "Warning: your network attitude and velocity is not being logged.  If you intend working in deeper water with a frequency modulated chirp you will need to interface this data.",
+                              "Critical: neither datagram 'F', 'f' or 'N' were found. Critical range and angle data missing, you are not collecting the data required for post processing.  If you are collecting processed depths it is possible to back process however it is not desirable and is a complex process."
+                          ],
+                          "data": {
+                              "missing_critical": [
+                                  "F"
+                              ],
+                              "missing_noncritical": [
+                                  "n"
+                              ]
+                          },
+                          "check_state": "fail"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "c1b857dd-6cb0-418c-a286-0dbcae9827b8",
+                          "name": "Runtime Parameters",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.651950",
+                              "end": "2020-05-28T11:24:10.652285"
+                          },
+                          "messages": [
+                              "5 Runtime parameter (R) datagrams found in file"
+                          ],
+                          "data": {
+                              "runtime_parameters": [
+                                  {
+                                      "BSPStatus": 0,
+                                      "Counter": 50464,
+                                      "DepthMode": "VeryDeep",
+                                      "EMModel": 122,
+                                      "ETX": 3,
+                                      "RecordDate": 20150203,
+                                      "STX": 2,
+                                      "SerialNumber": 117,
+                                      "TXPulseForm": "Mixed",
+                                      "Time": 3871.467,
+                                      "absorptionCoefficient": 1.23,
+                                      "beamSpacing": 3,
+                                      "beamSpacingString": "High density equidistant",
+                                      "checksum": 2880,
+                                      "dualSwathMode": "Dynamic",
+                                      "filterIdentifier": 32,
+                                      "filterIdentifier2": 16,
+                                      "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                      "maximumDepth": 5000,
+                                      "maximumPortCoverageDegrees": 65,
+                                      "maximumPortWidth": 5000,
+                                      "maximumStbdCoverageDegrees": 65,
+                                      "maximumStbdWidth": 5000,
+                                      "minimumDepth": 1000,
+                                      "mode": 147,
+                                      "mode2": 0,
+                                      "operatorStationStatus": 0,
+                                      "processingUnitStatus": 0,
+                                      "receiveBandwidth": 80,
+                                      "receiveBeamWidth": 20,
+                                      "sonarHeadStatus": 0,
+                                      "sourceOfSpeedSound": 0,
+                                      "transmitAAlongTilt": 0,
+                                      "transmitBeamWidth": 10,
+                                      "transmitPower": 0,
+                                      "transmitPulseLength": 14286,
+                                      "tvg": 6,
+                                      "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                      "yawMode": 132,
+                                      "Latitude": -41.55287615,
+                                      "Longitude": 81.6952566
+                                  },
+                                  {
+                                      "BSPStatus": 0,
+                                      "Counter": 50466,
+                                      "DepthMode": "VeryDeep",
+                                      "EMModel": 122,
+                                      "ETX": 3,
+                                      "RecordDate": 20150203,
+                                      "STX": 2,
+                                      "SerialNumber": 117,
+                                      "TXPulseForm": "Mixed",
+                                      "Time": 3871.533,
+                                      "absorptionCoefficient": 1.23,
+                                      "beamSpacing": 3,
+                                      "beamSpacingString": "High density equidistant",
+                                      "checksum": 2565,
+                                      "dualSwathMode": "Off",
+                                      "filterIdentifier": 32,
+                                      "filterIdentifier2": 16,
+                                      "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                      "maximumDepth": 5000,
+                                      "maximumPortCoverageDegrees": 65,
+                                      "maximumPortWidth": 5000,
+                                      "maximumStbdCoverageDegrees": 65,
+                                      "maximumStbdWidth": 5000,
+                                      "minimumDepth": 1000,
+                                      "mode": 19,
+                                      "mode2": 0,
+                                      "operatorStationStatus": 0,
+                                      "processingUnitStatus": 0,
+                                      "receiveBandwidth": 80,
+                                      "receiveBeamWidth": 20,
+                                      "sonarHeadStatus": 0,
+                                      "sourceOfSpeedSound": 0,
+                                      "transmitAAlongTilt": 0,
+                                      "transmitBeamWidth": 10,
+                                      "transmitPower": 0,
+                                      "transmitPulseLength": 14286,
+                                      "tvg": 6,
+                                      "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                      "yawMode": 132,
+                                      "Latitude": -41.55287615,
+                                      "Longitude": 81.6952566
+                                  },
+                                  {
+                                      "BSPStatus": 0,
+                                      "Counter": 50466,
+                                      "DepthMode": "VeryDeep",
+                                      "EMModel": 122,
+                                      "ETX": 3,
+                                      "RecordDate": 20150203,
+                                      "STX": 2,
+                                      "SerialNumber": 117,
+                                      "TXPulseForm": "Mixed",
+                                      "Time": 3871.533,
+                                      "absorptionCoefficient": 1.23,
+                                      "beamSpacing": 3,
+                                      "beamSpacingString": "High density equidistant",
+                                      "checksum": 2565,
+                                      "dualSwathMode": "Off",
+                                      "filterIdentifier": 32,
+                                      "filterIdentifier2": 16,
+                                      "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                      "maximumDepth": 5000,
+                                      "maximumPortCoverageDegrees": 65,
+                                      "maximumPortWidth": 5000,
+                                      "maximumStbdCoverageDegrees": 65,
+                                      "maximumStbdWidth": 5000,
+                                      "minimumDepth": 1000,
+                                      "mode": 19,
+                                      "mode2": 0,
+                                      "operatorStationStatus": 0,
+                                      "processingUnitStatus": 0,
+                                      "receiveBandwidth": 80,
+                                      "receiveBeamWidth": 20,
+                                      "sonarHeadStatus": 0,
+                                      "sourceOfSpeedSound": 0,
+                                      "transmitAAlongTilt": 0,
+                                      "transmitBeamWidth": 10,
+                                      "transmitPower": 0,
+                                      "transmitPulseLength": 14286,
+                                      "tvg": 6,
+                                      "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                      "yawMode": 132,
+                                      "Latitude": -41.55287615,
+                                      "Longitude": 81.6952566
+                                  },
+                                  {
+                                      "BSPStatus": 0,
+                                      "Counter": 50466,
+                                      "DepthMode": "VeryDeep",
+                                      "EMModel": 122,
+                                      "ETX": 3,
+                                      "RecordDate": 20150203,
+                                      "STX": 2,
+                                      "SerialNumber": 117,
+                                      "TXPulseForm": "Mixed",
+                                      "Time": 3871.533,
+                                      "absorptionCoefficient": 1.23,
+                                      "beamSpacing": 3,
+                                      "beamSpacingString": "High density equidistant",
+                                      "checksum": 2565,
+                                      "dualSwathMode": "Off",
+                                      "filterIdentifier": 32,
+                                      "filterIdentifier2": 16,
+                                      "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                      "maximumDepth": 5000,
+                                      "maximumPortCoverageDegrees": 65,
+                                      "maximumPortWidth": 5000,
+                                      "maximumStbdCoverageDegrees": 65,
+                                      "maximumStbdWidth": 5000,
+                                      "minimumDepth": 1000,
+                                      "mode": 19,
+                                      "mode2": 0,
+                                      "operatorStationStatus": 0,
+                                      "processingUnitStatus": 0,
+                                      "receiveBandwidth": 80,
+                                      "receiveBeamWidth": 20,
+                                      "sonarHeadStatus": 0,
+                                      "sourceOfSpeedSound": 0,
+                                      "transmitAAlongTilt": 0,
+                                      "transmitBeamWidth": 10,
+                                      "transmitPower": 0,
+                                      "transmitPulseLength": 14286,
+                                      "tvg": 6,
+                                      "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                      "yawMode": 132,
+                                      "Latitude": -41.55287615,
+                                      "Longitude": 81.6952566
+                                  },
+                                  {
+                                      "BSPStatus": 0,
+                                      "Counter": 50466,
+                                      "DepthMode": "VeryDeep",
+                                      "EMModel": 122,
+                                      "ETX": 3,
+                                      "RecordDate": 20150203,
+                                      "STX": 2,
+                                      "SerialNumber": 117,
+                                      "TXPulseForm": "Mixed",
+                                      "Time": 3871.533,
+                                      "absorptionCoefficient": 1.23,
+                                      "beamSpacing": 3,
+                                      "beamSpacingString": "High density equidistant",
+                                      "checksum": 2565,
+                                      "dualSwathMode": "Off",
+                                      "filterIdentifier": 32,
+                                      "filterIdentifier2": 16,
+                                      "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                      "maximumDepth": 5000,
+                                      "maximumPortCoverageDegrees": 65,
+                                      "maximumPortWidth": 5000,
+                                      "maximumStbdCoverageDegrees": 65,
+                                      "maximumStbdWidth": 5000,
+                                      "minimumDepth": 1000,
+                                      "mode": 19,
+                                      "mode2": 0,
+                                      "operatorStationStatus": 0,
+                                      "processingUnitStatus": 0,
+                                      "receiveBandwidth": 80,
+                                      "receiveBeamWidth": 20,
+                                      "sonarHeadStatus": 0,
+                                      "sourceOfSpeedSound": 0,
+                                      "transmitAAlongTilt": 0,
+                                      "transmitBeamWidth": 10,
+                                      "transmitPower": 0,
+                                      "transmitPulseLength": 14286,
+                                      "tvg": 6,
+                                      "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                      "yawMode": 132,
+                                      "Latitude": -41.55287615,
+                                      "Longitude": 81.6952566
+                                  }
+                              ],
+                              "map": {
+                                  "type": "FeatureCollection",
+                                  "features": [
+                                      {
+                                          "type": "Feature",
+                                          "geometry": {
+                                              "type": "Point",
+                                              "coordinates": [
+                                                  81.695257,
+                                                  -39.552876
+                                              ]
+                                          },
+                                          "properties": {
+                                              "BSPStatus": 0,
+                                              "Counter": 50464,
+                                              "DepthMode": "VeryDeep",
+                                              "EMModel": 122,
+                                              "ETX": 3,
+                                              "RecordDate": 20150203,
+                                              "STX": 2,
+                                              "SerialNumber": 117,
+                                              "TXPulseForm": "Mixed",
+                                              "Time": 3871.467,
+                                              "absorptionCoefficient": 1.23,
+                                              "beamSpacing": 3,
+                                              "beamSpacingString": "High density equidistant",
+                                              "checksum": 2880,
+                                              "dualSwathMode": "Dynamic",
+                                              "filterIdentifier": 32,
+                                              "filterIdentifier2": 16,
+                                              "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                              "maximumDepth": 5000,
+                                              "maximumPortCoverageDegrees": 65,
+                                              "maximumPortWidth": 5000,
+                                              "maximumStbdCoverageDegrees": 65,
+                                              "maximumStbdWidth": 5000,
+                                              "minimumDepth": 1000,
+                                              "mode": 147,
+                                              "mode2": 0,
+                                              "operatorStationStatus": 0,
+                                              "processingUnitStatus": 0,
+                                              "receiveBandwidth": 80,
+                                              "receiveBeamWidth": 20,
+                                              "sonarHeadStatus": 0,
+                                              "sourceOfSpeedSound": 0,
+                                              "transmitAAlongTilt": 0,
+                                              "transmitBeamWidth": 10,
+                                              "transmitPower": 0,
+                                              "transmitPulseLength": 14286,
+                                              "tvg": 6,
+                                              "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                              "yawMode": 132
+                                          }
+                                      },
+                                      {
+                                          "type": "Feature",
+                                          "geometry": {
+                                              "type": "Point",
+                                              "coordinates": [
+                                                  81.695257,
+                                                  -40.552876
+                                              ]
+                                          },
+                                          "properties": {
+                                              "BSPStatus": 0,
+                                              "Counter": 50466,
+                                              "DepthMode": "VeryDeep",
+                                              "EMModel": 122,
+                                              "ETX": 3,
+                                              "RecordDate": 20150203,
+                                              "STX": 2,
+                                              "SerialNumber": 117,
+                                              "TXPulseForm": "Mixed",
+                                              "Time": 3871.533,
+                                              "absorptionCoefficient": 1.23,
+                                              "beamSpacing": 3,
+                                              "beamSpacingString": "High density equidistant",
+                                              "checksum": 2565,
+                                              "dualSwathMode": "Off",
+                                              "filterIdentifier": 32,
+                                              "filterIdentifier2": 16,
+                                              "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                              "maximumDepth": 5000,
+                                              "maximumPortCoverageDegrees": 65,
+                                              "maximumPortWidth": 5000,
+                                              "maximumStbdCoverageDegrees": 65,
+                                              "maximumStbdWidth": 5000,
+                                              "minimumDepth": 1000,
+                                              "mode": 19,
+                                              "mode2": 0,
+                                              "operatorStationStatus": 0,
+                                              "processingUnitStatus": 0,
+                                              "receiveBandwidth": 80,
+                                              "receiveBeamWidth": 20,
+                                              "sonarHeadStatus": 0,
+                                              "sourceOfSpeedSound": 0,
+                                              "transmitAAlongTilt": 0,
+                                              "transmitBeamWidth": 10,
+                                              "transmitPower": 0,
+                                              "transmitPulseLength": 14286,
+                                              "tvg": 6,
+                                              "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                              "yawMode": 132
+                                          }
+                                      },
+                                      {
+                                          "type": "Feature",
+                                          "geometry": {
+                                              "type": "Point",
+                                              "coordinates": [
+                                                  81.695257,
+                                                  -41.552876
+                                              ]
+                                          },
+                                          "properties": {
+                                              "BSPStatus": 0,
+                                              "Counter": 50466,
+                                              "DepthMode": "VeryDeep",
+                                              "EMModel": 122,
+                                              "ETX": 3,
+                                              "RecordDate": 20150203,
+                                              "STX": 2,
+                                              "SerialNumber": 117,
+                                              "TXPulseForm": "Mixed",
+                                              "Time": 3871.533,
+                                              "absorptionCoefficient": 1.23,
+                                              "beamSpacing": 3,
+                                              "beamSpacingString": "High density equidistant",
+                                              "checksum": 2565,
+                                              "dualSwathMode": "Off",
+                                              "filterIdentifier": 32,
+                                              "filterIdentifier2": 16,
+                                              "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                              "maximumDepth": 5000,
+                                              "maximumPortCoverageDegrees": 65,
+                                              "maximumPortWidth": 5000,
+                                              "maximumStbdCoverageDegrees": 65,
+                                              "maximumStbdWidth": 5000,
+                                              "minimumDepth": 1000,
+                                              "mode": 19,
+                                              "mode2": 0,
+                                              "operatorStationStatus": 0,
+                                              "processingUnitStatus": 0,
+                                              "receiveBandwidth": 80,
+                                              "receiveBeamWidth": 20,
+                                              "sonarHeadStatus": 0,
+                                              "sourceOfSpeedSound": 0,
+                                              "transmitAAlongTilt": 0,
+                                              "transmitBeamWidth": 10,
+                                              "transmitPower": 0,
+                                              "transmitPulseLength": 14286,
+                                              "tvg": 6,
+                                              "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                              "yawMode": 132
+                                          }
+                                      },
+                                      {
+                                          "type": "Feature",
+                                          "geometry": {
+                                              "type": "Point",
+                                              "coordinates": [
+                                                  81.695257,
+                                                  -41.552876
+                                              ]
+                                          },
+                                          "properties": {
+                                              "BSPStatus": 0,
+                                              "Counter": 50466,
+                                              "DepthMode": "VeryDeep",
+                                              "EMModel": 122,
+                                              "ETX": 3,
+                                              "RecordDate": 20150203,
+                                              "STX": 2,
+                                              "SerialNumber": 117,
+                                              "TXPulseForm": "Mixed",
+                                              "Time": 3871.533,
+                                              "absorptionCoefficient": 1.23,
+                                              "beamSpacing": 3,
+                                              "beamSpacingString": "High density equidistant",
+                                              "checksum": 2565,
+                                              "dualSwathMode": "Off",
+                                              "filterIdentifier": 32,
+                                              "filterIdentifier2": 16,
+                                              "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                              "maximumDepth": 5000,
+                                              "maximumPortCoverageDegrees": 65,
+                                              "maximumPortWidth": 5000,
+                                              "maximumStbdCoverageDegrees": 65,
+                                              "maximumStbdWidth": 5000,
+                                              "minimumDepth": 1000,
+                                              "mode": 19,
+                                              "mode2": 0,
+                                              "operatorStationStatus": 0,
+                                              "processingUnitStatus": 0,
+                                              "receiveBandwidth": 80,
+                                              "receiveBeamWidth": 20,
+                                              "sonarHeadStatus": 0,
+                                              "sourceOfSpeedSound": 0,
+                                              "transmitAAlongTilt": 0,
+                                              "transmitBeamWidth": 10,
+                                              "transmitPower": 0,
+                                              "transmitPulseLength": 14286,
+                                              "tvg": 6,
+                                              "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                              "yawMode": 132
+                                          }
+                                      },
+                                      {
+                                          "type": "Feature",
+                                          "geometry": {
+                                              "type": "Point",
+                                              "coordinates": [
+                                                  81.695257,
+                                                  -41.552876
+                                              ]
+                                          },
+                                          "properties": {
+                                              "BSPStatus": 0,
+                                              "Counter": 50466,
+                                              "DepthMode": "VeryDeep",
+                                              "EMModel": 122,
+                                              "ETX": 3,
+                                              "RecordDate": 20150203,
+                                              "STX": 2,
+                                              "SerialNumber": 117,
+                                              "TXPulseForm": "Mixed",
+                                              "Time": 3871.533,
+                                              "absorptionCoefficient": 1.23,
+                                              "beamSpacing": 3,
+                                              "beamSpacingString": "High density equidistant",
+                                              "checksum": 2565,
+                                              "dualSwathMode": "Off",
+                                              "filterIdentifier": 32,
+                                              "filterIdentifier2": 16,
+                                              "filterSetting": "SpikeFilterOff+RangeGatesNormal+AerationFilterOn",
+                                              "maximumDepth": 5000,
+                                              "maximumPortCoverageDegrees": 65,
+                                              "maximumPortWidth": 5000,
+                                              "maximumStbdCoverageDegrees": 65,
+                                              "maximumStbdWidth": 5000,
+                                              "minimumDepth": 1000,
+                                              "mode": 19,
+                                              "mode2": 0,
+                                              "operatorStationStatus": 0,
+                                              "processingUnitStatus": 0,
+                                              "receiveBandwidth": 80,
+                                              "receiveBeamWidth": 20,
+                                              "sonarHeadStatus": 0,
+                                              "sourceOfSpeedSound": 0,
+                                              "transmitAAlongTilt": 0,
+                                              "transmitBeamWidth": 10,
+                                              "transmitPower": 0,
+                                              "transmitPulseLength": 14286,
+                                              "tvg": 6,
+                                              "yawAndPitchStabilisationMode": "Yaw stabilised OFF+Pitch stabilised ON",
+                                              "yawMode": 132
+                                          }
+                                      }
+                                  ]
+                              }
+                          },
+                          "check_state": "pass"
+                      }
+                  },
+                  {
+                      "info": {
+                          "id": "9efe60b6-47d1-4631-8d4c-dc1ce89dbaa6",
+                          "name": "Positions",
+                          "version": "1",
+                          "group": {
+                              "id": "",
+                              "name": "",
+                              "description": ""
+                          }
+                      },
+                      "inputs": {
+                          "files": [
+                              {
+                                  "path": "/Users/lachlan/work/projects/qa4mb/repo/hyo2_mate/tests/test_data_remote/0200_MBES_EM122_20150203_010431_Supporter_GA4430.all",
+                                  "file_type": "Raw Files"
+                              }
+                          ],
+                          "params": []
+                      },
+                      "outputs": {
+                          "execution": {
+                              "status": "completed",
+                              "start": "2020-05-28T11:24:10.652311",
+                              "end": "2020-05-28T11:24:10.652813"
+                          },
+                          "messages": [],
+                          "data": {
+                              "map": {
+                                  "type": "FeatureCollection",
+                                  "features": [
+                                      {
+                                          "type": "Feature",
+                                          "geometry": {
+                                              "type": "LineString",
+                                              "coordinates": [
+                                                  [
+                                                      81.695257,
+                                                      -41.552876
+                                                  ],
+                                                  [
+                                                      81.69525,
+                                                      -41.552879
+                                                  ],
+                                                  [
+                                                      81.695242,
+                                                      -41.552882
+                                                  ],
+                                                  [
+                                                      81.695235,
+                                                      -41.552885
+                                                  ],
+                                                  [
+                                                      81.695228,
+                                                      -41.552887
+                                                  ],
+                                                  [
+                                                      81.695221,
+                                                      -41.55289
+                                                  ],
+                                                  [
+                                                      81.695214,
+                                                      -41.552893
+                                                  ],
+                                                  [
+                                                      81.695207,
+                                                      -41.552896
+                                                  ],
+                                                  [
+                                                      81.6952,
+                                                      -41.552899
+                                                  ],
+                                                  [
+                                                      81.695192,
+                                                      -41.552902
+                                                  ],
+                                                  [
+                                                      81.695185,
+                                                      -41.552905
+                                                  ],
+                                                  [
+                                                      81.695178,
+                                                      -41.552907
+                                                  ],
+                                                  [
+                                                      81.695171,
+                                                      -41.55291
+                                                  ],
+                                                  [
+                                                      81.695164,
+                                                      -41.552913
+                                                  ],
+                                                  [
+                                                      81.695157,
+                                                      -41.552916
+                                                  ],
+                                                  [
+                                                      81.69515,
+                                                      -41.552919
+                                                  ],
+                                                  [
+                                                      81.695143,
+                                                      -41.552922
+                                                  ],
+                                                  [
+                                                      81.695136,
+                                                      -41.552924
+                                                  ],
+                                                  [
+                                                      81.695129,
+                                                      -41.552927
+                                                  ],
+                                                  [
+                                                      81.695122,
+                                                      -41.55293
+                                                  ],
+                                                  [
+                                                      81.695115,
+                                                      -41.552933
+                                                  ],
+                                                  [
+                                                      81.695109,
+                                                      -41.552935
+                                                  ],
+                                                  [
+                                                      81.695102,
+                                                      -41.552938
+                                                  ],
+                                                  [
+                                                      81.695095,
+                                                      -41.552941
+                                                  ],
+                                                  [
+                                                      81.695088,
+                                                      -41.552943
+                                                  ],
+                                                  [
+                                                      81.695081,
+                                                      -41.552946
+                                                  ],
+                                                  [
+                                                      81.695074,
+                                                      -41.552949
+                                                  ],
+                                                  [
+                                                      81.695067,
+                                                      -41.552951
+                                                  ],
+                                                  [
+                                                      81.69506,
+                                                      -41.552954
+                                                  ],
+                                                  [
+                                                      81.695053,
+                                                      -41.552956
+                                                  ],
+                                                  [
+                                                      81.695046,
+                                                      -41.552959
+                                                  ],
+                                                  [
+                                                      81.695039,
+                                                      -41.552961
+                                                  ],
+                                                  [
+                                                      81.695032,
+                                                      -41.552964
+                                                  ],
+                                                  [
+                                                      81.695025,
+                                                      -41.552966
+                                                  ],
+                                                  [
+                                                      81.695019,
+                                                      -41.552969
+                                                  ],
+                                                  [
+                                                      81.695012,
+                                                      -41.552971
+                                                  ],
+                                                  [
+                                                      81.695005,
+                                                      -41.552973
+                                                  ],
+                                                  [
+                                                      81.694998,
+                                                      -41.552976
+                                                  ],
+                                                  [
+                                                      81.694991,
+                                                      -41.552978
+                                                  ],
+                                                  [
+                                                      81.694984,
+                                                      -41.552981
+                                                  ],
+                                                  [
+                                                      81.694977,
+                                                      -41.552983
+                                                  ],
+                                                  [
+                                                      81.69497,
+                                                      -41.552985
+                                                  ],
+                                                  [
+                                                      81.694963,
+                                                      -41.552988
+                                                  ],
+                                                  [
+                                                      81.694957,
+                                                      -41.55299
+                                                  ],
+                                                  [
+                                                      81.69495,
+                                                      -41.552993
+                                                  ],
+                                                  [
+                                                      81.694943,
+                                                      -41.552995
+                                                  ],
+                                                  [
+                                                      81.694936,
+                                                      -41.552997
+                                                  ],
+                                                  [
+                                                      81.694929,
+                                                      -41.553
+                                                  ],
+                                                  [
+                                                      81.694922,
+                                                      -41.553002
+                                                  ],
+                                                  [
+                                                      81.694915,
+                                                      -41.553005
+                                                  ],
+                                                  [
+                                                      81.694908,
+                                                      -41.553007
+                                                  ],
+                                                  [
+                                                      81.694901,
+                                                      -41.553009
+                                                  ],
+                                                  [
+                                                      81.694894,
+                                                      -41.553012
+                                                  ],
+                                                  [
+                                                      81.694887,
+                                                      -41.553014
+                                                  ],
+                                                  [
+                                                      81.69488,
+                                                      -41.553017
+                                                  ],
+                                                  [
+                                                      81.694873,
+                                                      -41.553019
+                                                  ],
+                                                  [
+                                                      81.694866,
+                                                      -41.553021
+                                                  ],
+                                                  [
+                                                      81.69486,
+                                                      -41.553024
+                                                  ],
+                                                  [
+                                                      81.694839,
+                                                      -41.553032
+                                                  ],
+                                                  [
+                                                      81.694832,
+                                                      -41.553034
+                                                  ]
+                                              ]
+                                          },
+                                          "properties": {}
+                                      }
+                                  ]
+                              }
+                          },
+                          "check_state": "pass"
+                      }
+                  }
+              ]
+
+        },
+        "survey_products": {
+            "checks": []
+        }
+    }
+}
