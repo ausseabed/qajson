@@ -15,7 +15,7 @@ setup(
         "tyanne.faulkes@noaa.gov"
     ),
     description='Description of my package',
-    packages=find_packages(),
+    packages=['ausseabed.qajson'],
     package_data={"": ["schemas/**/*.json"]},
     install_requires=['jsonschema'],
     tests_require=['pytest'],
