@@ -46,9 +46,7 @@ class QajsonParser:
         return True
 
     @classmethod
-    def validate_qa_json(cls, path: Path, schema_path: Path) -> bool:
-        qa = json.loads(open(str(path)).read())
-        # logger.debug(json)
+    def validate_qa_json_dict(cls, qa: Dict, schema_path: Path) -> bool:
         try:
             validate(
                 instance=qa, schema=json.loads(open(str(schema_path)).read()))
@@ -59,6 +57,11 @@ class QajsonParser:
             logger.warning("%s" % e)
             return False
         return True
+
+    @classmethod
+    def validate_qa_json(cls, path: Path, schema_path: Path) -> bool:
+        qa = json.loads(open(str(path)).read())
+        return QajsonParser.validate_qa_json_dict(qa, schema_path)
 
     @classmethod
     def example_paths(cls) -> list:

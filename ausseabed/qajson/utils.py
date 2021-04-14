@@ -35,3 +35,18 @@ def minimal_qajson() -> QajsonRoot:
 
     root = QajsonRoot(qa=qa)
     return root
+
+
+def qajson_valid(qajson: QajsonRoot) -> bool:
+    ''' Is this qajson object valid. This is implemented by first attempting to
+    generate the dictionary representation (returns false if this fails).
+    '''
+    try:
+        as_dict = qajson.to_dict()
+    except Exception as e:
+        return False
+
+    # TODO: Consider validating the dictionary representation against
+    # the json schema. Only reason not to would be performance.
+
+    return True
