@@ -371,10 +371,18 @@ class QajsonQa(QajsonObject):
         otherwise a new QajsonDataLevel will be created, added to the qa object
         and returned
         """
-        dl = getattr(self, data_level)
+        dl = self.get_data_level(data_level)
         if dl is None:
             dl = QajsonDataLevel(checks=[])
             setattr(self, data_level, dl)
+        return dl
+
+    def get_data_level(
+            self, data_level: str) -> QajsonDataLevel:
+        """ If a data level exists in the `qa` object it will be returned,
+        otherwise None will be returned
+        """
+        dl = getattr(self, data_level)
         return dl
 
     def to_dict(self):
