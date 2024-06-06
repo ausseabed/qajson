@@ -110,23 +110,34 @@ class QajsonParam(QajsonObject):
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'QajsonParam':
-        group = (
-            QajsonGroup.from_dict(data['group']) if 'group' in data else None)
+        options = (data['options']) if 'options' in data else None
         instance = cls(
             name=data['name'],
-            value=data['value']
+            value=data['value'],
+            options=options
         )
         return instance
 
-    def __init__(self, name: str, value: Any):
+    def __init__(
+            self,
+            name: str,
+            value: Any,
+            options: None | list[str, int, float] = None
+        ):
         self.name = name
         self.value = value
+        # Note: for the most part the options list is not used within QAJSON. It is
+        # however used in some situations where a parameter must be of a certain value
+        # QAX uses this options list to build pick lists when given
+        self.options = options
 
     def to_dict(self):
         dict = {
             'name': self.name,
-            'value': self.value
+            'value': self.value,
         }
+        if self.options is not None:
+            dict['options'] = self.options
         return dict
 
 
