@@ -1,8 +1,7 @@
 import os
 import unittest
 
-from ausseabed.qajson.model import QajsonFile, QajsonParam, QajsonInputs, \
-    QajsonOutputs, QajsonInfo, QajsonRoot, QajsonQa, QajsonDataLevel
+from ausseabed.qajson.model import QajsonRoot, QajsonQa, QajsonDataLevel
 from ausseabed.qajson.parser import QajsonParser
 
 

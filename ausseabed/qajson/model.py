@@ -1,12 +1,6 @@
-from collections import defaultdict
-from jsonschema import validate, ValidationError, SchemaError, Draft7Validator
-from pathlib import Path
-from typing import Optional, Dict, List, Any
+from typing import Dict, List, Any
 import json
 import logging
-import os
-import time
-import traceback
 
 logger = logging.getLogger(__name__)
 
