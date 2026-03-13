@@ -1,11 +1,10 @@
 from jsonschema import validate, ValidationError, SchemaError, Draft7Validator
 from pathlib import Path
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict
 import json
 import logging
 
-from ausseabed.qajson.model import QajsonFile, QajsonParam, QajsonInputs, \
-    QajsonOutputs, QajsonInfo, QajsonRoot
+from ausseabed.qajson.model import QajsonRoot
 
 logger = logging.getLogger(__name__)
 

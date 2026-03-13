@@ -1,5 +1,4 @@
-from ausseabed.qajson.model import QajsonFile, QajsonParam, QajsonInputs, \
-    QajsonOutputs, QajsonInfo, QajsonRoot, QajsonQa, QajsonDataLevel
+from ausseabed.qajson.model import QajsonRoot, QajsonQa, QajsonDataLevel
 from ausseabed.qajson.parser import QajsonParser
 import os
 
@@ -43,9 +42,10 @@ def qajson_valid(qajson: QajsonRoot) -> bool:
     '''
     try:
         as_dict = qajson.to_dict()
-    except Exception as e:
+    except Exception:
         return False
 
+    assert isinstance(as_dict, dict)
     # TODO: Consider validating the dictionary representation against
     # the json schema. Only reason not to would be performance.
 
