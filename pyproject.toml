@@ -1,0 +1,35 @@
+[project]
+name = "ausseabed.qajson"
+version = "0.0.1"
+description = "QA JSON schema definition and support classes"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema",
+]
+authors = [
+  { name = "Lachlan Hurst", email = "lachlan.hurst@gmail.com" },
+  { name = "Giuseppe Masetti (UNH, CCOM)", email = "gmasetti@ccom.unh.edu" },
+  { name = "Tyanne Faulkes (NOAA, OCS)", email = "tyanne.faulkes@noaa.gov" },
+]
+license = { text = "LGPL-3.0-only" }
+
+[project.urls]
+Homepage = "https://github.com/ausseabed/qajson"
+Repository = "https://github.com/ausseabed/qajson"
+
+[project.optional-dependencies]
+tests = ["pytest", "pytest-cov"]
+
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+  "ausseabed/qajson/schemas/**/*.json",
+]
+license-files = ["LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = [ "ausseabed" ]
