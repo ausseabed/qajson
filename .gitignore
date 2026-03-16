@@ -1,3 +1,7 @@
+pixi.lock
+.vscode/
+*.conda
+
 # macOS
 **/.DS_Store
 
