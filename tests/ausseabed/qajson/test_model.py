@@ -1,20 +1,24 @@
 import unittest
 
-from ausseabed.qajson.model import QajsonFile, QajsonParam, QajsonInputs, \
-    QajsonOutputs, QajsonInfo
+from ausseabed.qajson.model import (
+    QajsonFile,
+    QajsonParam,
+    QajsonInputs,
+    QajsonOutputs,
+    QajsonInfo,
+)
 
 
 class TestModel(unittest.TestCase):
-
     qajson_file_dict = {
         "path": "test/path/test.txt",
         "description": "test file",
-        "file_type": "Raw Files"
+        "file_type": "Raw Files",
     }
 
     qajson_param_01_dict = {
         "name": "threshold",
-        "value": 123
+        "value": 123,
     }
 
     qajson_outputs = {
@@ -22,21 +26,21 @@ class TestModel(unittest.TestCase):
         "execution": {
             "start": "2019-07-08T14:56:49.006647",
             "end": "2019-07-08T14:56:49.006677",
-            "status": "completed"
+            "status": "completed",
         },
         "files": [
             {"path": "t3.txt", "file_type": "unknown"},
-            {"path": "t4.txt", "file_type": "unknown"}
+            {"path": "t4.txt", "file_type": "unknown"},
         ],
         "messages": ["message one", "message two"],
-        "check_state": "pass"
+        "check_state": "pass",
     }
 
     qajson_outputs_minimal = {
         "execution": {
             "start": "2019-07-08T14:56:49.006647",
             "end": "2019-07-08T14:56:49.006677",
-            "status": "completed"
+            "status": "completed",
         }
     }
 
@@ -44,12 +48,12 @@ class TestModel(unittest.TestCase):
         "execution": {
             "start": "2019-07-08T14:56:49.006647",
             "end": "2019-07-08T14:56:49.006677",
-            "status": "completed"
+            "status": "completed",
         },
         "data": {
             "var1": 1234,
-            "list_var": [1, 2, 3, 4]
-        }
+            "list_var": [1, 2, 3, 4],
+        },
     }
 
     qajson_info = {
@@ -57,15 +61,12 @@ class TestModel(unittest.TestCase):
         "name": "Filename checked",
         "description": "desc",
         "version": "1",
-        "group": {
-            "id": "123",
-            "name": "123"
-        }
+        "group": {"id": "123", "name": "123"},
     }
 
     qajson_inputs = {
         "files": [qajson_file_dict],
-        "params": []
+        "params": [],
     }
 
     def test_qajson_file(self):
@@ -75,7 +76,7 @@ class TestModel(unittest.TestCase):
         qajson_file_dict_test = QajsonFile.to_dict(qajson_file)
         self.assertDictEqual(
             TestModel.qajson_file_dict,
-            qajson_file_dict_test
+            qajson_file_dict_test,
         )
 
     def test_qajson_param(self):
