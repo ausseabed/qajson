@@ -10,7 +10,6 @@ logger = logging.getLogger(__name__)
 
 
 class QajsonParser:
-
     here = Path(__file__).parent
 
     @classmethod
@@ -23,9 +22,8 @@ class QajsonParser:
     @classmethod
     def schema_paths(cls) -> list:
         paths = list()
-        for path in cls.schemas_folder().rglob('*.json'):
-
-            if path.match('*.schema.json'):
+        for path in cls.schemas_folder().rglob("*.json"):
+            if path.match("*.schema.json"):
                 paths.append(path)
 
         # todo: find more robust mechanism for identifying latest schema
@@ -47,8 +45,7 @@ class QajsonParser:
     @classmethod
     def validate_qa_json_dict(cls, qa: Dict, schema_path: Path) -> bool:
         try:
-            validate(
-                instance=qa, schema=json.loads(open(str(schema_path)).read()))
+            validate(instance=qa, schema=json.loads(open(str(schema_path)).read()))
         except ValidationError as e:
             logger.warning("%s" % e)
             return False
@@ -65,15 +62,15 @@ class QajsonParser:
     @classmethod
     def example_paths(cls) -> list:
         paths = list()
-        for path in cls.schemas_folder().rglob('*.json'):
-            if not path.match('*.schema.json'):
+        for path in cls.schemas_folder().rglob("*.json"):
+            if not path.match("*.schema.json"):
                 paths.append(path)
 
         return paths
 
     def __init__(
-            self, path: Path, schema_path: Optional[Path] = None,
-            check_valid: bool = True):
+        self, path: Path, schema_path: Optional[Path] = None, check_valid: bool = True
+    ):
         self._path = Path(path)
         if schema_path is None:
             schema_path = self.schema_paths()[-1]
@@ -87,7 +84,8 @@ class QajsonParser:
                 raise RuntimeError("invalid schema: %s" % self._schema_path)
 
             valid = self.validate_qa_json(
-                path=self._path, schema_path=self._schema_path)
+                path=self._path, schema_path=self._schema_path
+            )
             logger.debug("valid QA json: %s" % valid)
             if not valid:
                 raise RuntimeError("invalid json: %s" % self._path)
@@ -118,7 +116,7 @@ class QajsonParser:
     def __repr__(self):
         msg = super().__repr__()
         msg += "\n"
-        msg += "  <path: %s>\n" % (self.path, )
+        msg += "  <path: %s>\n" % (self.path,)
         msg += "  <schemas folder: %s>\n" % (self.schemas_folder())
-        msg += "  <schema path: %s>\n" % (self.schema_path, )
+        msg += "  <schema path: %s>\n" % (self.schema_path,)
         return msg
