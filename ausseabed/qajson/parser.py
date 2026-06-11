@@ -1,6 +1,6 @@
 from jsonschema import validate, ValidationError, SchemaError, Draft7Validator
 from pathlib import Path
-from typing import Optional, Dict
+from typing import Optional, Dict, Any
 import json
 import logging
 
@@ -20,7 +20,7 @@ class QajsonParser:
         return schemas_path
 
     @classmethod
-    def schema_paths(cls) -> list:
+    def schema_paths(cls) -> list[Path]:
         paths = list()
         for path in cls.schemas_folder().rglob("*.json"):
             if path.match("*.schema.json"):
@@ -69,7 +69,10 @@ class QajsonParser:
         return paths
 
     def __init__(
-        self, path: Path, schema_path: Optional[Path] = None, check_valid: bool = True
+        self,
+        path: Path,
+        schema_path: Optional[Path] = None,
+        check_valid: bool = True,
     ):
         self._path = Path(path)
         if schema_path is None:
@@ -90,7 +93,7 @@ class QajsonParser:
             if not valid:
                 raise RuntimeError("invalid json: %s" % self._path)
 
-        self._js = json.loads(open(str(self._path)).read())
+        self._js: dict[str, Any] = json.loads(open(str(self._path)).read())
         self._root = QajsonRoot.from_dict(self.js)
 
     @property
@@ -102,11 +105,11 @@ class QajsonParser:
         return self._schema_path
 
     @property
-    def js(self) -> Optional[object]:
+    def js(self) -> dict[str, Any]:
         return self._js
 
     @js.setter
-    def js(self, value: object) -> None:
+    def js(self, value: dict[str, Any]) -> None:
         self._js = value
 
     @property
