@@ -23,6 +23,7 @@ platforms = ["win-64", "linux-64", "osx-arm64"]
 ## These are environment dependencies for the workspace test env
 [dependencies]
 ausseabed-qajson = { path = "." }
+rattler-build = "*"
 pytest = "*"
 pytest-cov = "*"
 ruff = "*"
@@ -31,4 +32,9 @@ pip = "*"
 pixi-inspect = ">=2.0.0"
 mypy = ">=1.19.1,<2"
 types-jsonschema = ">=4.26.0.20260202,<5"
+
+
+[tasks]
+mkconda = "pixi build"
+tests = "py.test --cov=ausseabed.qajson --cov-report=term --cov-report=html tests/"
 
