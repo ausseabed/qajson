@@ -82,4 +82,15 @@ jobs:
         with:
           path: ${{ steps.conda-package.outputs.path }}
           archive: false
+
+      - name: Upload to prefix.dev
+        if: needs.policy.outputs.mode == 'tagged-release'
+        env:
+          CONDA_PACKAGE_PATH: ${{ steps.conda-package.outputs.path }}
+          PREFIX_CHANNEL: kk-test
+          PREFIX_API_KEY: ${{ secrets.PREFIX_DEV_TOKEN }}
+        run: |
+          echo "Uploading ${CONDA_PACKAGE_PATH}"
+          pixi upload prefix "${CONDA_PACKAGE_PATH}"
+
  
