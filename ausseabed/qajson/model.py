@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import Any
 from abc import ABC, abstractmethod
 
 import json
@@ -193,7 +193,7 @@ class QajsonInputs(QajsonObject):
         instance = cls(files=files, params=params)
         return instance
 
-    def __init__(self, files: List[QajsonFile], params: List[QajsonParam]):
+    def __init__(self, files: list[QajsonFile], params: list[QajsonParam]):
         self.files = files
         self.params = params
 
@@ -225,10 +225,10 @@ class QajsonOutputs(QajsonObject):
     def __init__(
         self,
         execution: QajsonExecution,
-        files: List[QajsonFile] | None = None,
+        files: list[QajsonFile] | None = None,
         count: int | None = None,
         percentage: float | None = None,
-        messages: str | None = None,
+        messages: list[str] | None = None,
         data: dict[str, Any] | None = None,
         check_state: str | None = None,
     ):
@@ -314,7 +314,7 @@ class QajsonDataLevel(QajsonObject):
         instance = cls(checks=checks)
         return instance
 
-    def __init__(self, checks: List[QajsonCheck]):
+    def __init__(self, checks: list[QajsonCheck]):
         self.checks = checks
 
     def get_check(self, check_id: str) -> QajsonCheck | None:
