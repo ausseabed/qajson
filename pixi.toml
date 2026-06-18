@@ -35,6 +35,5 @@ types-jsonschema = ">=4.26.0.20260202,<5"
 
 
 [tasks]
-mkconda = "pixi build"
 tests = "py.test --cov=ausseabed.qajson --cov-report=term --cov-report=html tests/"
 

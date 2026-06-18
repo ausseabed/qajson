@@ -1,96 +1,21 @@
-name: Build Conda Package 
+name: Build Conda Package
 
 on:
-    push:
-        branches:
-            - 'main'
-            - 'kk/*'
-        tags:
-            - 'v.*'
-    pull_request:
-        branches:
-            - 'main'
-    workflow_dispatch:
+  push:
+    branches:
+      - "main"
+      - "kk/*"
+    tags:
+      - "v.*"
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:
 
 jobs:
-  policy:
-    runs-on: ubuntu-latest
-    outputs:
-      # dev|release|tagged-release (tags or main|develop)
-      mode: ${{ steps.eval.outputs.mode }}
-
-    steps:
-      - id: eval
-        shell: bash
-        run: |
-          MODE="dev"
-
-          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
-            MODE="tagged-release"
-          fi
-
-          if [[ "$GITHUB_REF_TYPE" == "branch" ]]; then
-            if [[ "$GITHUB_REF_NAME" == "main" ]]; then
-              MODE="release"
-            fi
-          fi
-
-          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
-          echo "Resolved build mode: $MODE"
-
-  build-conda:
-    needs: policy
-    runs-on: "ubuntu-latest" 
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Install Pixi
-        uses: prefix-dev/setup-pixi@v0.9.5
-        with:
-          cache: true
-
-      - name: Patch version for dev build
-        if: needs.policy.outputs.mode == 'dev'
-        run: |
-          awk -i inplace -v run="$GITHUB_RUN_NUMBER" '
-            /^[[:space:]]*version[[:space:]]*=/ {
-              sub(/"$/, ".dev" run "\"")
-            }
-            { print }
-          ' pyproject.toml
-
-          grep -q "\.dev$GITHUB_RUN_NUMBER\"" pyproject.toml \
-            || { echo "Version patch failed" >&2; exit 1; }
-
-      - name: Build Conda Package
-        id: conda-package
-        run: |
-          pixi run mkconda
-          CONDA_PACKAGE_PATH="$(find . -name '*.conda' | head -1)" 
-          echo "path=${CONDA_PACKAGE_PATH}" >> $GITHUB_OUTPUT
-
-      - name: Dump Package Content
-        env:
-          CONDA_PACKAGE_PATH: ${{ steps.conda-package.outputs.path }}
-        run: |
-          pixi run rattler-build package inspect --paths "${CONDA_PACKAGE_PATH}"
-
-      - name: Publish Artifact
-        uses: actions/upload-artifact@v7
-        with:
-          path: ${{ steps.conda-package.outputs.path }}
-          archive: false
-
-      - name: Upload to prefix.dev
-        if: needs.policy.outputs.mode == 'tagged-release'
-        env:
-          CONDA_PACKAGE_PATH: ${{ steps.conda-package.outputs.path }}
-          PREFIX_CHANNEL: kk-test
-          PREFIX_API_KEY: ${{ secrets.PREFIX_DEV_TOKEN }}
-        run: |
-          echo "Uploading ${CONDA_PACKAGE_PATH}"
-          pixi upload prefix "${CONDA_PACKAGE_PATH}"
-
- 
+  ci:
+    uses: ausseabed/.github/.github/workflows/ci.yaml@main
+    # with:
+    #     prefix_channel: ${{ vars.PREFIX_CHANNEL }}
+    secrets:
+        prefix_api_token: ${{ secrets.PREFIX_API_KEY }}
