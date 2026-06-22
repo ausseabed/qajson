@@ -1,4 +1,4 @@
-name: Build Conda Package
+name: CI
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "main"
       - "kk/*"
     tags:
-      - "v.*"
+      - "v*"
   pull_request:
     branches:
       - "main"
@@ -14,8 +14,6 @@ on:
 
 jobs:
   ci:
-    uses: ausseabed/.github/.github/workflows/ci.yaml@main
-    # with:
-    #     prefix_channel: ${{ vars.PREFIX_CHANNEL }}
+    uses: ausseabed/.github/.github/workflows/ci.yml@main
     secrets:
         prefix_api_token: ${{ secrets.PREFIX_API_KEY }}
