@@ -224,7 +224,7 @@ class QajsonOutputs(QajsonObject):
 
     def __init__(
         self,
-        execution: QajsonExecution,
+        execution: QajsonExecution | None = None,
         files: list[QajsonFile] | None = None,
         count: int | None = None,
         percentage: float | None = None,
@@ -232,6 +232,8 @@ class QajsonOutputs(QajsonObject):
         data: dict[str, Any] | None = None,
         check_state: str | None = None,
     ):
+        if execution is None:
+            execution = QajsonExecution(None, None, None, None)
         self.execution = execution
         self.files = files
         self.count = count
